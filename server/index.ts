@@ -12,6 +12,7 @@ export type AppRouter = typeof appRouter
 const server = createHTTPServer({
   // middleware: cors(),
   router: appRouter,
+  
 })
 
 server.listen(3000);
