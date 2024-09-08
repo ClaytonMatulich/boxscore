@@ -13,9 +13,6 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.54.1",
-    "@trpc/client": "^11.0.0-rc.498",
-    "@trpc/react-query": "^11.0.0-rc.498",
     "@trpc/server": "^11.0.0-rc.498",
     "@types/cors": "^2.8.17",
     "cors": "^2.8.5",

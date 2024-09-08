@@ -1,23 +1,19 @@
-import { useState } from 'react'
+import { useState } from "react";
+
+import { Button } from "@/components/ui/button.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div className='flex flex-col gap-1'>
-        <button className='bg-blue-500' onClick={() => setCount((count) => count + 1)}>
-          up
-        </button>
-        <button className='bg-red-400' onClick={() => setCount((count) => count - 1)}>
-          dow
-        </button>
-        <p>
-          {count}
-        </p>
+      <div className="m-auto flex max-w-md flex-col gap-1">
+        <Button onClick={() => setCount((count) => count + 1)}>up</Button>
+        <Button onClick={() => setCount((count) => count - 1)}>down</Button>
+        <p>{count}</p>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
