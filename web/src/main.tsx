@@ -1,34 +1,34 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { createRouter, RouterProvider } from "@tanstack/react-router";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { StrictMode } from "react"
+import { createRoot } from "react-dom/client"
+import { createRouter, RouterProvider } from "@tanstack/react-router"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
-import { routeTree } from "./routeTree.gen";
-import { trpc } from "@/utils/trpc";
-import { httpBatchLink } from "@trpc/client";
-import "./index.css";
+import { routeTree } from "./routeTree.gen"
+import { trpc } from "@/utils/trpc"
+import { httpBatchLink } from "@trpc/client"
+import "./index.css"
 
-const router = createRouter({ routeTree });
+const router = createRouter({ routeTree })
 
 declare module "@tanstack/react-router" {
   interface Register {
-    router: typeof router;
+    router: typeof router
   }
 }
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
       url: "http://localhost:3000",
     }),
   ],
-});
+})
 
-const rootElement = document.getElementById("root")!;
+const rootElement = document.getElementById("root")!
 
 if (!rootElement.innerHTML) {
-  const root = createRoot(rootElement);
+  const root = createRoot(rootElement)
   root.render(
     <StrictMode>
       <trpc.Provider client={trpcClient} queryClient={queryClient}>
@@ -37,5 +37,5 @@ if (!rootElement.innerHTML) {
         </QueryClientProvider>
       </trpc.Provider>
     </StrictMode>,
-  );
+  )
 }
